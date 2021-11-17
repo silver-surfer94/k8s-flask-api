@@ -5,4 +5,4 @@ COPY . .
 
 RUN pip install -r requirements.txt
 
-ENTRYPOINT ["python", "./api/app.py"]
+CMD ["python", "./api/app.py"]
