@@ -25,7 +25,7 @@ waypoint-restore.db.lock
 # .tfstate files
 *.tfstate
 *.tfstate.*
-.terraform.lock.hcl
+*.terraform.lock.hcl
 
 # Crash log files
 crash.log
