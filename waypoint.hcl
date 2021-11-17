@@ -7,7 +7,9 @@ app "k8s-flask-api" {
   }
 
   build {
-    use "pack" {}
+    use "docker" {
+      disable_entrypoint = true
+    }
     registry {
       use "docker" {
         image = "us-central1-docker.pkg.dev/liatrio-kubernetes-api/flask-api-k8s/flask-api-k8s"
@@ -19,13 +21,14 @@ app "k8s-flask-api" {
   deploy {
     use "kubernetes" {
       probe_path = "/"
+      service_port = 8080
     }
   }
-#
-#  release {
-#    use "kubernetes" {
-#      load_balancer = true
-#      port          = 80
-#    }
-#  }
+
+  release {
+    use "kubernetes" {
+      load_balancer = true
+      port          = 80
+    }
+  }
 }

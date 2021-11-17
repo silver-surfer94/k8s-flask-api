@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: liatrio-flask-gke
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: liatrio
+  template:
+    metadata:
+      labels:
+        app: liatrio
+    spec:
+      containers:
+      - name: liatrio-flask-gke
+        # Replace $LOCATION with your Artifact Registry location (e.g., us-west1).
+        # Replace $GCLOUD_PROJECT with your project ID.
+        image: us-central1-docker.pkg.dev/liatrio-kubernetes-api/flask-api-k8s/flask-api-k8s:latest
+        # This app listens on port 8080 for web traffic by default.
+        ports:
+        - containerPort: 8080
+        env:
+          - name: PORT
+            value: "8080"
