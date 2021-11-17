@@ -5,3 +5,4 @@ README.md
 *.pyd
 __pycache__
 .waypoint/
+liatrio-terraform/
