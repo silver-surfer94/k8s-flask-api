@@ -6,13 +6,7 @@ from flask import Flask, jsonify
 app = Flask(__name__)
 
 
-@app.route('/')
-def hello_world():
-    target = os.environ.get('TARGET', 'World')
-    return 'Hello {}!\n'.format(target)
-
-
-@app.route('/time/', methods=['GET'])
+@app.route('/', methods=['GET'])
 def get_time():
     timestamp = int(datetime.now().timestamp())
     response = {'message': 'Automate all the things!', 'timestamp': timestamp}

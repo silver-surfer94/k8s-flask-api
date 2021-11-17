@@ -7,9 +7,16 @@ app "k8s-flask-api" {
   }
 
   build {
-    use "docker-pull" {
-      image = "adetesan94/liatrio-k8s-api"
-      tag   = "v1.0.0"
+    use "docker" {
+      platform = "linux/amd64"
+      buildkit    = true
+      disable_entrypoint = false
+    }
+    registry {
+      use "docker" {
+        image = "us-central1-docker.pkg.dev/liatrio-kubernetes-api/flask-api-k8s/flask-api-k8s"
+        tag   = "latest"
+      }
     }
   }
 
