@@ -24,6 +24,9 @@ Intall the Waypoint server on the cluster:
 
 `waypoint install --platform=kubernetes -accept-tos`
 
+### Optional: Waypoint Server Access
+Access the Waypoint server on `https://<SERVER_IP>:9702` and run `waypoint user token` to generate the login token. This gives you access to see exiting projects, builds, deployments, and releases.  
+
 ## Waypoint Deployment
 From ./k8s-flask-api, build, deploy and release the app with: `waypoint init && waypoint up`
 
